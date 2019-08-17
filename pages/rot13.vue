@@ -23,7 +23,7 @@
 
 <script>
   export default {
-    name: 'Home',
+    name: 'ROT13',
     data() {
       return {
         inputStr: '',

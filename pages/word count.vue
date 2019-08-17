@@ -25,7 +25,7 @@
 
 <script>
   export default {
-    name: 'Home',
+    name: 'Word Count',
     data() {
       return {
         inputStr: ''

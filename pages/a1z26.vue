@@ -26,7 +26,7 @@
 
 <script>
   export default {
-    name: 'Home',
+    name: 'A1Z26',
     data() {
       return {
         inputStr: '',

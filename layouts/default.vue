@@ -25,8 +25,8 @@
             <p class="menu-label">General</p>
             <ul class="menu-list">
               <li v-for="(navItem, key) of navItems" :key="key">
-                <nuxt-link class="is-capitalized" :to="navItem.name" exact-active-class="is-active">
-                  {{ navItem.name }}
+                <nuxt-link class="is-capitalized" :to="navItem.path" exact-active-class="is-active">
+                  {{navItem.name === 'index' ? 'Home' : navItem.name }}
                 </nuxt-link>
               </li>
             </ul>
@@ -47,7 +47,7 @@
   export default {
     computed: {
       navItems() {
-        return this.$router.options.routes
+        return this.$router.options.routes.sort((x, y) => x.path > y.path ? 1 : -1)
       }
     },
     data() {
