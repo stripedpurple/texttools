@@ -34,7 +34,7 @@
 
             <div v-if="!encode" class="column is-full">
                 <h2 class="subtitle">Encoded Message</h2>
-                <textarea v-model.lazy="encodedMsg" class="textarea">This content is readonly</textarea>
+                <textarea v-model="encodedMsg" class="textarea">This content is readonly</textarea>
 
             </div>
 
@@ -226,9 +226,8 @@
                 ).forEach(x => {
                     letter.push(x);
                     if (letter.length === 5) {
-                        console.log(letter);
-                        newStr += letter.join('');
-                        // newStr += this.dictionary[this.index(letter.join(''), 'code')].letter || '';
+                        let q = this.index(letter.join(''), 'code');
+                        if (q !== -1 ) newStr += this.dictionary[q].letter;
                         letter = []
                     }
                 });
@@ -242,16 +241,6 @@
                     return e[key]
                 }).indexOf(letter) || -1
             }
-        },
-        mounted(){
-            this.$buefy.snackbar.open({
-                message: 'The section is still being developed and contains bugs.',
-                type: 'is-warning',
-                position: 'is-top',
-                actionText: 'Close',
-                indefinite: true,
-                queue: false
-            })
         }
     }
 </script>
