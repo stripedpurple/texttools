@@ -22,11 +22,12 @@
       <div class="columns is-desktop">
         <b-collapse class="column is-2-desktop has-background-white-bis" aria-id="aside" :open="isOpen">
           <aside class="section">
-            <p class="menu-label">General</p>
-            <ul class="menu-list">
-              <li v-for="(navItem, key) of navItems" :key="key">
-                <nuxt-link class="is-capitalized" :to="navItem.path" exact-active-class="is-active">
-                  {{navItem.name === 'index' ? 'Home' : navItem.name }}
+            <ul v-for="(navItem, key) of navItems" :key="key" class="menu-list">
+              <p v-if="key !== ''" class="menu-label" style="margin-top: 1em; margin-bottom: 0.25em !important;">{{ key }}</p>
+              <li v-for="(item, index) in navItems[key]">
+                <nuxt-link class="is-capitalized" :to="item.info.path" exact-active-class="is-active">
+                  <!--                  {{ navItem.name === 'index' ? 'Home' : item.path.split('/').reverse()[0] }}-->
+                  {{item.info.path.split('/').reverse()[0] || 'Home' }}
                 </nuxt-link>
               </li>
             </ul>
@@ -42,18 +43,32 @@
 </template>
 
 <script>
+  import _ from 'lodash';
+
   let windowWidth;
   if (process.client) windowWidth = window.innerWidth > 1024;
+
   export default {
     computed: {
       navItems() {
-        return this.$router.options.routes.sort((x, y) => x.path > y.path ? 1 : -1)
+        return _.groupBy(this.$router.options.routes.sort(
+          (x, y) => x.path > y.path ? 1 : -1
+        ).map(x => {
+          let y = {};
+          y.parent = x.path.split('/')[1];
+          y.info = x;
+          return y
+        }), 'parent');
       }
     },
     data() {
       return {
         isOpen: windowWidth
       }
+    },
+    mounted() {
+      console.log(this.$router);
+      console.log(this.navItems);
     }
   }
 </script>

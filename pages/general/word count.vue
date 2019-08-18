@@ -12,9 +12,18 @@
 
       <div class="column is-full">
         <ul>
-          <li><span class="has-text-weight-bold has-text-right">Word Count: </span><span>{{wordCount}}</span></li>
-          <li><span class="has-text-weight-bold has-text-right">Line Count: </span><span>{{lineCount}}</span></li>
-          <li><span class="has-text-weight-bold has-text-right">Character Count: </span><span>{{characterCount}}</span></li>
+          <li><div class="columns is-mobile">
+            <div class="column is-3-tablet is-half-mobile has-text-weight-bold">Word Count:</div>
+            <div class="column">{{wordCount}}</div>
+          </div></li>
+          <li><div class="columns is-mobile">
+            <div class="column is-3-tablet is-half-mobile has-text-weight-bold">Line Count:</div>
+            <div class="column">{{lineCount}}</div>
+          </div></li>
+          <li><div class="columns is-mobile">
+            <div class="column is-3-tablet is-half-mobile has-text-weight-bold">Character Count:</div>
+            <div class="column">{{characterCount}}</div>
+          </div></li>
         </ul>
       </div>
     </div>

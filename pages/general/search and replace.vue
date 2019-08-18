@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <h1 class="title">Base64</h1>
+    <h1 class="title">Search and Replace</h1>
 
     <hr>
 

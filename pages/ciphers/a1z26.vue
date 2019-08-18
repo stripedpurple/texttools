@@ -8,6 +8,7 @@
       <div class="column is-full">
         <h2 class="subtitle">Your Text</h2>
         <b-input v-model="inputStr" type="textarea" placeholder="Type something here and watch the magic..."></b-input>
+        <small>A1Z26 is a simple <a href="https://en.wikipedia.org/wiki/Substitution_cipher">substitution cipher</a> that maps the standard english alphabet (a-z) to the numbers 1-26</small>
       </div>
 
       <div class="column is-full">

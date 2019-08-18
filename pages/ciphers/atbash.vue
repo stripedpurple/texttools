@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <h1 class="title">ROT {{rotOffset}}</h1>
+    <h1 class="title">Atbash</h1>
 
     <hr>
 
@@ -8,12 +8,12 @@
       <div class="column is-full">
         <h2 class="subtitle">Your Text</h2>
         <b-input v-model="inputStr" type="textarea" placeholder="Type something here and watch the magic..."></b-input>
-        <b-slider v-model="rotOffset" :min="1" :max="25" rounded ticks></b-slider>
+        <small>Learn about <a href="https://en.wikipedia.org/wiki/Atbash">Atbash</a></small>
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">Uppercase</h2>
-        <b-input :value="rot" type="textarea" disabled></b-input>
+        <h2 class="subtitle">Output</h2>
+        <b-input :value="atbash" type="textarea" disabled></b-input>
       </div>
     </div>
 
@@ -23,25 +23,16 @@
 
 <script>
   export default {
-    name: 'ROT13',
+    name: 'Atbash',
     data() {
       return {
-        inputStr: '',
-        rotOffset: 13
+        inputStr: ''
       }
     },
     computed: {
-      rot() {
-        let input = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'];
-        let output = [];
-
-        output = input.map(x => {
-          return x.slice(this.rotOffset) + x.slice(0, this.rotOffset)
-        });
-
-        input = input.join('');
-        output = output.join('');
-
+      atbash() {
+        let input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        let output = 'ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba';
         let index = x => input.indexOf(x);
         let translate = x => index(x) > -1 ? output[index(x)] : x;
         return this.inputStr.split('').map(translate).join('');
