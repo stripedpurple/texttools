@@ -12,19 +12,32 @@
             </div>
 
             <div class="column is-half">
+                <b-field>
+                    <p class="control"><span class="button is-static">Line on</span></p>
                 <b-select v-model="selected">
-                    <option v-for="(opt, key) in select" :value="opt.value" :key="key" :selected>{{opt.name}}</option>
+                    <option v-for="(opt, key) in select" :value="opt" :key="key" :selected="selected">{{opt}}</option>
                 </b-select>
+                    <p class="control"><span class="button is-static">{{selectedPrompt}}</span></p>
+                    <b-select v-model="textOccurrenceOpt" v-if="selected === 'text occurrence'" :selected="textOccurrenceOpt">
+                        <option>after</option>
+                        <option>before</option>
+                        <option>instead of</option>
+                    </b-select>
+                    <p class="control" v-if="selected === 'text occurrence'">
+                        <span class="button is-static">text</span>
+                    </p>
+                    <b-input v-model="textOccurrenceQuery"></b-input>
+                </b-field>
+
+
             </div>
 
             <div class="column is-full">
                 <h2 class="subtitle">Output</h2>
-                <b-input :value="numbered" type="textarea" :placeholder="placeholder" custom-class="textarea-tall"
+                <b-input :value="numbered" type="textarea" :placeholder="text" custom-class="textarea-tall"
                          disabled></b-input>
             </div>
         </div>
-
-
     </section>
 </template>
 
@@ -36,6 +49,8 @@
                 inputStr: '',
                 padded: false,
                 placeholder: '',
+                textOccurrenceOpt: 'after',
+                textOccurrenceQuery: '',
                 selected: 'text occurrence',
                 select: [
                     'text occurrence',
@@ -45,11 +60,12 @@
             }
         },
         computed: {
-            lineCount() {
-                return this.inputStr.split('\n').length.toString().length
-            },
-            numbered() {
-                return
+            selectedPrompt() {
+                if (this.selected === 'text occurrence') return "Add newline ";
+                if (this.selected === 'character position') return "newline every";
+                if (this.selected === 'add # line') return ""
+                return ''
+
             }
         }
     }
