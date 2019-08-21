@@ -12,8 +12,7 @@
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">Output</h2>
-        <b-input :value="atbash" type="textarea" disabled></b-input>
+        <output-area :output="atbash"></output-area>
       </div>
     </div>
 

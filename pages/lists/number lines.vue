@@ -16,12 +16,10 @@
             </div>
 
             <div class="column is-full">
-                <h2 class="subtitle">Output</h2>
-                <b-input :value="numbered" type="textarea" :placeholder="placeholder" custom-class="textarea-tall" disabled></b-input>
+                <output-area :output="output"></output-area>
             </div>
+
         </div>
-
-
     </section>
 </template>
 
@@ -43,7 +41,7 @@
             lineCount() {
               return this.inputStr.split('\n').length.toString().length
             },
-            numbered() {
+            output() {
                 if (!!this.inputStr.length) return this.inputStr.split(/\n/).map((x,i) => (this.padded ? ('                    ' + (i + 1)).slice(-this.lineCount) : (i + 1)) + '. ' + x).join('\n')
             }
         }

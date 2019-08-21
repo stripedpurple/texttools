@@ -14,11 +14,14 @@
             <div class="column is-half">
                 <b-field>
                     <p class="control"><span class="button is-static">Line on</span></p>
-                <b-select v-model="selected">
-                    <option v-for="(opt, key) in select" :value="opt" :key="key" :selected="selected">{{opt}}</option>
-                </b-select>
-                    <p class="control"><span class="button is-static">{{selectedPrompt}}</span></p>
-                    <b-select v-model="textOccurrenceOpt" v-if="selected === 'text occurrence'" :selected="textOccurrenceOpt">
+                    <b-select v-model="selected">
+                        <option v-for="(opt, key) in select" :value="opt" :key="key" :selected="selected">{{opt}}
+                        </option>
+                    </b-select>
+                    <p v-if="selectedPrompt" class="control"><span class="button is-static">{{selectedPrompt}}</span>
+                    </p>
+                    <b-select v-model="textOccurrenceOpt" v-if="selected === 'text occurrence'"
+                              :selected="textOccurrenceOpt">
                         <option>after</option>
                         <option>before</option>
                         <option>instead of</option>
@@ -26,16 +29,22 @@
                     <p class="control" v-if="selected === 'text occurrence'">
                         <span class="button is-static">text</span>
                     </p>
-                    <b-input v-model="textOccurrenceQuery"></b-input>
+
+                    <b-input v-if="selected === 'text occurrence'" v-model="textOccurrenceQuery"></b-input>
+                    <b-numberinput min='1' type="is-cust" controls-position="compact"
+                                   v-if="selected === 'character position'" v-model="charPosQuery"></b-numberinput>
+                    <b-numberinput min='1' type="is-cust" controls-position="compact"
+                                   v-if="selected === 'add # of lines'" v-model="lineCountQuery"></b-numberinput>
+
+                    <p class="control" v-if="selected === 'character position'"><span class="button is-static">characters</span>
+                    </p>
                 </b-field>
 
 
             </div>
 
             <div class="column is-full">
-                <h2 class="subtitle">Output</h2>
-                <b-input :value="numbered" type="textarea" :placeholder="text" custom-class="textarea-tall"
-                         disabled></b-input>
+                <output-area :output="output"></output-area>
             </div>
         </div>
     </section>
@@ -51,11 +60,13 @@
                 placeholder: '',
                 textOccurrenceOpt: 'after',
                 textOccurrenceQuery: '',
+                charPosQuery: 1,
+                lineCountQuery: 1,
                 selected: 'text occurrence',
                 select: [
                     'text occurrence',
                     'character position',
-                    'add # lines'
+                    'add # of lines'
                 ]
             }
         },
@@ -63,16 +74,34 @@
             selectedPrompt() {
                 if (this.selected === 'text occurrence') return "Add newline ";
                 if (this.selected === 'character position') return "newline every";
-                if (this.selected === 'add # line') return ""
+                if (this.selected === 'add # line') return "";
                 return ''
 
+            },
+            output() {
+                if (this.selected === 'text occurrence') {
+                    let re = new RegExp(this.textOccurrenceQuery, 'g');
+                    if (this.textOccurrenceOpt === 'after')
+                        return this.inputStr.replace(re, this.textOccurrenceQuery + '\n');
+                    if (this.textOccurrenceOpt === 'before')
+                        return this.inputStr.replace(re, '\n' + this.textOccurrenceQuery);
+                    if (this.textOccurrenceOpt === 'instead of')
+                        return this.inputStr.replace(re, '\n')
+                }
+
+                if (this.selected === 'character position') {
+                    let re = new RegExp("(.{" + this.charPosQuery + "})", 'g');
+                    return this.inputStr.replace(re, "$1\n")
+                }
+
+
+                if (this.selected === 'add # of lines') {
+                    let count = '\n';
+                    for (let i = 0; i < this.lineCountQuery; i++)
+                        count += '\n';
+                    return this.inputStr.replace(/\n/g, count)
+                }
             }
         }
     }
 </script>
-
-<style>
-    .textarea {
-        height: 15em;
-    }
-</style>

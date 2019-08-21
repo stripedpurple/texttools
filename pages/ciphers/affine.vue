@@ -27,8 +27,7 @@
             </div>
 
             <div class="column is-full">
-                <h2 class="subtitle">Output</h2>
-                <b-input :value="affine" type="textarea" disabled></b-input>
+                <output-area :output="affine"></output-area>
             </div>
         </div>
 

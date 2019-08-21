@@ -23,24 +23,19 @@
             </div>
 
             <div v-if="encode" class="column is-half">
-                <h2 class="subtitle">RAW Output</h2>
-                <b-input :value="baconian" type="textarea" disabled></b-input>
+                <output-area :output="baconian" title="Raw Output"></output-area>
             </div>
 
             <div v-if="encode" class="column is-half">
-                <h2 class="subtitle">Embeded Output</h2>
-                <b-input :value="embeded" type="textarea" disabled></b-input>
+                <output-area :output="embeded" title="Embeded Output"></output-area>
             </div>
 
             <div v-if="!encode" class="column is-full">
-                <h2 class="subtitle">Encoded Message</h2>
-                <textarea v-model="encodedMsg" class="textarea">This content is readonly</textarea>
-
+                <output-area :output="encodedMsg" title="Encoded Message"></output-area>
             </div>
 
             <div v-if="!encode" class="column is-full">
-                <h2 class="subtitle">Output</h2>
-                <b-input :value="decoded" type="textarea" disabled></b-input>
+                <output-area :output="decoded"></output-area>
             </div>
 
             <div class="column is-full">

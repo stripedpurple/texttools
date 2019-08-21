@@ -65,10 +65,31 @@
       return {
         isOpen: windowWidth
       }
-    },
-    mounted() {
-      console.log(this.$router);
-      console.log(this.navItems);
     }
   }
 </script>
+
+<style>
+  .textarea {
+    height: 15em;
+  }
+
+  .is-cust {
+    background-color: whitesmoke;
+    border-color: #dbdbdb;
+    color: #7a7a7a;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .copy-container{
+    position: relative;
+  }
+
+  .copy-container button {
+    position: absolute;
+    z-index: 1000;
+    top: 1em;
+    right: 1em;
+  }
+</style>

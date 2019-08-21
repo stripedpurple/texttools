@@ -25,8 +25,7 @@
             </div>
 
             <div class="column is-full">
-                <h2 class="subtitle">Output</h2>
-                <b-input :value="affixer" type="textarea" :placeholder="placeholder" custom-class="textarea-tall" disabled></b-input>
+                <output-area :output="output"></output-area>
             </div>
         </div>
 

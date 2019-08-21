@@ -18,10 +18,9 @@
                 <b-switch v-model="encode">Binary/ASCII</b-switch>
             </div>
 
-            <div class="column is-full">
-                <h2 class="subtitle">{{encode ? 'Binary' : 'ASCII'}}</h2>
-                <b-input :value="binary" type="textarea" disabled></b-input>
-            </div>
+                <div class="column is-full">
+                    <output-area :output="binary" :title="encode ? 'Binary' : 'ASCII'"></output-area>
+                </div>
 
         </div>
 

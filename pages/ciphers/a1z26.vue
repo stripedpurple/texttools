@@ -16,8 +16,7 @@
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">{{encode ? 'Encoded' : 'Decoded'}}</h2>
-        <b-input :value="a1z26" type="textarea" disabled></b-input>
+        <output-area :output="a1z26" :title="encode ? 'Binary' : 'ASCII'"></output-area>
       </div>
     </div>
 
@@ -65,10 +64,9 @@
       },
       decodeStr(x) { // https://github.com/wTool/A1z26-Cipher/blob/master/a1z26.js
         let letters = 'abcdefghijklmnopqrstuvwxyz';
-        let t = x.replace(/([\d]{1,2})([^\d]|$)/g, function (match, p1, p2) {
+        return x.replace(/([\d]{1,2})([^\d]|$)/g, function (match, p1, p2) {
           return letters[Number(p1) - 1] + (p2 == "-" ? "" : p2);
         });
-        return t;
       }
     }
   }

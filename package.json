@@ -16,7 +16,8 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
-    "nuxt-buefy": "^0.3.2"
+    "nuxt-buefy": "^0.3.2",
+    "vue-clipboard2": "^0.3.0"
   },
   "devDependencies": {
     "push-dir": "^0.4.1"

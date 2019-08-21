@@ -37,8 +37,7 @@
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">Results</h2>
-        <b-input :value="outputStr" type="textarea" disabled></b-input>
+        <output-area :output="outputStr"></output-area>
       </div>
       
     </div>

@@ -19,9 +19,9 @@
                 <b-switch v-model="encode">Encode/Decode</b-switch>
             </div>
 
+
             <div class="column is-full">
-                <h2 class="subtitle">{{encode ? 'Encoded' : 'Decoded'}}</h2>
-                <b-input :value="base64" type="textarea" disabled></b-input>
+                <output-area :output="base64" :title="encode ? 'Encoded' : 'Decoded'"></output-area>
             </div>
 
         </div>

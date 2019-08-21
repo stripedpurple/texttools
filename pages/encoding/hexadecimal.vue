@@ -20,10 +20,8 @@
             </div>
 
             <div class="column is-full">
-                <h2 class="subtitle">{{encode ? 'Encoded' : 'Decoded'}}</h2>
-                <b-input :value="base64" type="textarea" disabled></b-input>
+                <output-area :output="hexadecimal" :title="encode ? 'Binary' : 'ASCII'"></output-area>
             </div>
-
         </div>
 
     </section>

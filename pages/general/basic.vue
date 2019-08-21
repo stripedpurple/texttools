@@ -11,23 +11,19 @@
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">Uppercase</h2>
-        <b-input :value="strUpper" type="textarea" placeholder="ExamplE becomes EXAMPLE" disabled></b-input>
+        <output-area :output="strUpper"  placeholder="ExamplE becomes EXAMPLE" title="Uppercase"></output-area>
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">Lowercase</h2>
-        <b-input :value="strLower" type="textarea" placeholder="ExamplE becomes example" disabled></b-input>
+        <output-area :output="strLower"  placeholder="ExamplE becomes example" title="Lowercase"></output-area>
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">Titlecase</h2>
-        <b-input :value="strTitle" type="textarea" placeholder="ExamplE becomes Example" disabled></b-input>
+        <output-area :output="strTitle"  placeholder="ExamplE becomes Example" title="Titlecase"></output-area>
       </div>
 
       <div class="column is-full">
-        <h2 class="subtitle">Reversed</h2>
-        <b-input :value="strReverse" type="textarea" placeholder="ExamplE becomes ElpmaxE" disabled></b-input>
+        <output-area :output="strReverse"  placeholder="ExamplE becomes ElpmaxE" title="Reversed"></output-area>
       </div>
     </div>
 

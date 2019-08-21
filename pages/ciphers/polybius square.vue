@@ -33,8 +33,7 @@
             </div>
 
             <div class="column is-full">
-                <h2 class="subtitle">Output</h2>
-                <b-input :value="polybius" type="textarea" disabled></b-input>
+                <output-area :output="polybius"></output-area>
             </div>
             <div class="column is-full"><small>Learn about <a href="https://en.wikipedia.org/wiki/Polybius_square">Polybius
                 Square</a></small></div>
@@ -77,6 +76,16 @@
                 this.key = shuffled.join('');
                 if (this.cipherTextChar === '') this.cipherTextChar = 'ABCDE'
             }
+        },
+        mounted(){
+            this.$buefy.snackbar.open({
+                message: 'The section is still being developed and contains bugs.',
+                type: 'is-warning',
+                position: 'is-top',
+                actionText: 'Close',
+                indefinite: true,
+                onAction: () => {}
+            })
         }
     }
 </script>
