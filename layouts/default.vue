@@ -82,14 +82,4 @@
     box-shadow: none;
   }
 
-  .copy-container{
-    position: relative;
-  }
-
-  .copy-container button {
-    position: absolute;
-    z-index: 1000;
-    top: 1em;
-    right: 1em;
-  }
 </style>
