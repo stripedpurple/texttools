@@ -1,6 +1,6 @@
 <template>
     <section class="section">
-        <h1 class="title">Remove Blank Lines</h1>
+        <h1 class="title">Clean Spaces</h1>
 
         <hr>
 
