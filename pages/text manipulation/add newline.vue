@@ -11,7 +11,7 @@
                          placeholder="Type something here and watch the magic..."></b-input>
             </div>
 
-            <div class="column is-half">
+            <div class="column is-full">
                 <b-field>
                     <p class="control"><span class="button is-static">Line on</span></p>
                     <b-select v-model="selected">
