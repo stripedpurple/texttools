@@ -1,8 +1,8 @@
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+/** const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/texttools/'
   }
-} : {}
+} : {} **/
 
 export default {
   ...routerBase,
