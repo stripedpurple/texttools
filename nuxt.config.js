@@ -5,7 +5,7 @@
 } : {} **/
 
 export default {
-  ...routerBase,
+//  ...routerBase,
   mode: 'universal',
   /*
   ** Headers of the page
