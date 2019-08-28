@@ -17,6 +17,7 @@
     "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
+    "voca": "^1.4.0",
     "vue-clipboard2": "^0.3.0"
   },
   "devDependencies": {
