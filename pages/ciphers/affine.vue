@@ -62,7 +62,7 @@
                 type: 'is-warning',
                 position: 'is-top',
                 actionText: 'Close',
-                indefinite: true,
+                duration: 5000,
                 queue: false
             })
         }
