@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <h1 class="title">A1Z26 Cipher</h1>
 
     <hr>
@@ -21,12 +21,11 @@
     </div>
 
 
-  </section>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'A1Z26',
     data() {
       return {
         inputStr: '',

@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <h1 class="title">Basic</h1>
 
     <hr>
@@ -28,12 +28,11 @@
     </div>
 
 
-  </section>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'Basic',
     data() {
       return {
         inputStr: ''

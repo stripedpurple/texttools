@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Welcome to TextTools</h1>
         <h2 class="subtitle">This is just a imple tool I wrote to learn <a href="https://nuxtjs.org">Nuxt JS</a></h2>
 
@@ -20,13 +20,12 @@
                 </ul>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
     import _ from 'lodash'
     export default {
-        name: 'Home',
         computed: {
             navItems() {
                 return _.groupBy(this.$router.options.routes.sort(

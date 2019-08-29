@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Polybius Square</h1>
 
         <hr>
@@ -40,7 +40,7 @@
         </div>
 
 
-    </section>
+    </div>
 </template>
 
 <script>
@@ -53,7 +53,6 @@
     };
 
     export default {
-        name: 'PolybiusSquare',
         data() {
             return {
                 inputStr: '',

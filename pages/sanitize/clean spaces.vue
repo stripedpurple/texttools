@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Clean Spaces</h1>
 
         <hr>
@@ -25,7 +25,7 @@
                 <output-area :output="output"></output-area>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>

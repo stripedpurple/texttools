@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Affine</h1>
 
         <hr>
@@ -32,12 +32,11 @@
         </div>
 
 
-    </section>
+    </div>
 </template>
 
 <script>
     export default {
-        name: 'Affine',
         data() {
             return {
                 inputStr: '',

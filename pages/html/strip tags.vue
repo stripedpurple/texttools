@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Strip HTML Tags</h1>
 
         <hr>
@@ -50,7 +50,7 @@
             </div>
 
         </div>
-    </section>
+    </div>
 </template>
 
 <script>

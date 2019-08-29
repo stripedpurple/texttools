@@ -1,6 +1,6 @@
 <template>
-    <section class="section">
-        <h1 class="title">Remove Blank Lines</h1>
+    <div>
+        <h1 class="title">Reverse List</h1>
 
         <hr>
 
@@ -12,30 +12,35 @@
             </div>
 
             <div class="column is-full">
-                <b-switch v-model="trim">Trim Whitespace</b-switch>
+                <b-switch v-model="trim">trim whitespace</b-switch>
             </div>
 
             <div class="column is-full">
-                <output-area :output="output"></output-area>
+                <output-area :output="reverse"></output-area>
             </div>
         </div>
-    </section>
+
+
+    </div>
 </template>
 
 <script>
     export default {
         name: "Reverse",
-        data() {
+        data () {
             return {
                 inputStr: '',
                 trim: true
             }
         },
         computed: {
-            output() {
-                let str = this.inputStr.replace(/^\s*\n/gm,'');
-                return !this.trim ? str : str.split('\n').map(x => x.trim()).join('\n')
+            reverse() {
+                return this.trim ? this.inputStr.trim().split(/\n/).reverse().join('\n') : this.inputStr.split(/\n/).reverse().join('\n')
             }
-        },
+        }
     }
 </script>
+
+<style scoped>
+
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Base64</h1>
 
         <hr>
@@ -26,12 +26,11 @@
 
         </div>
 
-    </section>
+    </div>
 </template>
 
 <script>
     export default {
-        name: 'Base64',
         data() {
             return {
                 inputStr: '',

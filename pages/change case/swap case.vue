@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="title">Slugify</h1>
+        <h1 class="title">Swap Case</h1>
 
         <hr>
 
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import slugify from 'voca/slugify'
+    import swap from 'voca/swap_case'
 
     export default {
         name: "Reverse",
@@ -35,7 +35,7 @@
         },
         computed: {
             output() {
-                return this.inputStr.split('\n').map(slug => slugify(slug)).join('\n')
+                return swap(this.inputStr)
             }
         }
     }
