@@ -1,12 +1,10 @@
 <template>
     <div>
-        <nav class="navbar header has-shadow is-primary"
-             role="navigation"
-             aria-label="main navigation">
+        <nav class="navbar has-shadow is-primary"
+             role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <b-icon icon="console-line"></b-icon>&nbsp;&nbsp;Text Tools
-                </a>
+                    <b-icon icon="console-line"></b-icon>&nbsp;&nbsp;Text Tools</a>
 
                 <div class="navbar-burger" @click="isOpen = !isOpen" aria-controls="aside">
                     <span/>
@@ -16,48 +14,53 @@
             </div>
         </nav>
 
-        <section class="main-content is-fullheight">
-            <div class="columns is-desktop">
-                <b-collapse class="column is-2-desktop has-background-white-bis" aria-id="aside" :open="isOpen">
-                    <aside class="section">
-                        <ul v-for="(navItem, key) of navItems" :key="key" class="menu-list">
-                            <p v-if="key !== ''" class="menu-label"
-                               style="margin-top: 1em; margin-bottom: 0.25em !important;">{{ key }}</p>
-                            <li v-for="(item, index) in navItems[key]">
-                                <nuxt-link class="is-capitalized" :to="item.info.path" exact-active-class="is-active">
-                                    {{item.info.path.split('/').reverse()[0] || 'Home' }}
-                                </nuxt-link>
-                            </li>
-                        </ul>
-                    </aside>
-                </b-collapse>
-
-                <div class="container column is-10-desktop">
-                    <br>
-                    <b-field>
-                        <b-autocomplete
-                                v-model="toolQuery"
-                                :data="filteredDataArray"
-                                placeholder="e.g. Replace"
-                                icon="magnify"
-                                rounded
-                                @select="opt => navToSelected(opt)"
-                                field="convertedName">
-
-                            <template slot-scope="props">
-                                <no-ssr>
-                                    <nuxt-link class="is-flex" :to="props.option.path">{{props.option.convertedName}}
+        <div class="main-content">
+            <div class="columns is-multiline">
+                <div class="column is-2-desktop has-background-white-bis">
+                    <b-collapse aria-id="aside" :open="isOpen">
+                        <aside class="section">
+                            <ul v-for="(navItem, key) of navItems" :key="key" class="menu-list">
+                                <p v-if="key !== ''" class="menu-label"
+                                   style="margin-top: 1em; margin-bottom: 0.25em !important;">{{ key }}</p>
+                                <li v-for="(item, index) in navItems[key]">
+                                    <nuxt-link class="is-capitalized" :to="item.info.path"
+                                               exact-active-class="is-active">
+                                        {{item.info.path.split('/').reverse()[0] || 'Home' }}
                                     </nuxt-link>
-                                </no-ssr>
-                            </template>
-                            <template slot="empty">No results found</template>
-                        </b-autocomplete>
-                    </b-field>
+                                </li>
+                            </ul>
+                        </aside>
+                    </b-collapse>
+                </div>
 
-                    <nuxt/>
+
+                <div class="column">
+                    <section class="section">
+                        <b-field>
+                            <b-autocomplete
+                                    v-model="toolQuery"
+                                    :data="filteredDataArray"
+                                    placeholder="e.g. Replace"
+                                    icon="magnify"
+                                    rounded
+                                    @select="opt => navToSelected(opt)"
+                                    field="convertedName">
+
+                                <template slot-scope="props">
+                                    <no-ssr>
+                                        <nuxt-link class="is-flex" :to="props.option.path">
+                                            {{props.option.convertedName}}
+                                        </nuxt-link>
+                                    </no-ssr>
+                                </template>
+                                <template slot="empty">No results found</template>
+                            </b-autocomplete>
+                        </b-field>
+                        <nuxt/>
+                    </section>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 </template>
 
@@ -105,7 +108,7 @@
             }
         },
         methods: {
-            navToSelected(path){
+            navToSelected(path) {
                 console.log(path);
                 this.$router.push(path.path)
             }
@@ -114,6 +117,10 @@
 </script>
 
 <style>
+    .main-content{
+        padding: 0 0.75rem;
+    }
+
     .textarea {
         height: 15em;
     }

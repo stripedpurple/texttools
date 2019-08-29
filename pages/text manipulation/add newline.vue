@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Add Newline</h1>
 
         <hr>
@@ -47,7 +47,7 @@
                 <output-area :output="output"></output-area>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -59,7 +59,7 @@
                 padded: false,
                 placeholder: '',
                 textOccurrenceOpt: 'after',
-                textOccurrenceQuery: '',
+                textOccurrenceQuery: '.',
                 charPosQuery: 1,
                 lineCountQuery: 1,
                 selected: 'text occurrence',
@@ -79,8 +79,8 @@
 
             },
             output() {
-                if (this.selected === 'text occurrence') {
-                    let re = new RegExp(this.textOccurrenceQuery, 'g');
+                if (this.selected === 'text occurrence' && !!this.textOccurrenceQuery.length) {
+                    let re = new RegExp(this.textOccurrenceQuery.replace(/\*|\^|\||\[|\]|\(|\)|\+|\.|\?|\{|\}|\\|\$}/g, '\\$&'), 'g');
                     if (this.textOccurrenceOpt === 'after')
                         return this.inputStr.replace(re, this.textOccurrenceQuery + '\n');
                     if (this.textOccurrenceOpt === 'before')
@@ -101,6 +101,8 @@
                         count += '\n';
                     return this.inputStr.replace(/\n/g, count)
                 }
+
+                return this.inputStr
             }
         }
     }

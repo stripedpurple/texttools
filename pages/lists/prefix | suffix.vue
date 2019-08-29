@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Prefix | Suffix</h1>
 
         <hr>
@@ -7,7 +7,7 @@
         <div class="columns is-multiline">
             <div class="column is-full">
                 <h2 class="subtitle">Your Text</h2>
-                <b-input v-model="inputStr" type="textarea"
+                <b-input v-model.trim="inputStr" type="textarea"
                          placeholder="Type something here and watch the magic..."></b-input>
             </div>
 
@@ -25,12 +25,12 @@
             </div>
 
             <div class="column is-full">
-                <output-area :output="output"></output-area>
+                <output-area :output="affixer"></output-area>
             </div>
         </div>
 
 
-    </section>
+    </div>
 </template>
 
 <script>
@@ -53,7 +53,7 @@
         },
         computed: {
             affixer() {
-                return this.inputStr.split(/\n/).map(x => this.prefix + x + this.suffix).join('\n')
+                return this.inputStr.length ? this.inputStr.split(/\n/).map(x => this.prefix + x + this.suffix).join('\n') : ""
             }
         }
     }

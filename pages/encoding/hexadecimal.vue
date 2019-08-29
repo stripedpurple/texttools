@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Hexadecimal</h1>
 
         <hr>
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-    </section>
+    </div>
 </template>
 
 <script>
@@ -53,7 +53,6 @@
     };
 
     export default {
-        name: 'Base64',
         data() {
             return {
                 inputStr: '',
@@ -61,7 +60,7 @@
             }
         },
         computed: {
-            base64() {
+            hexadecimal() {
                 try {
                     if (this.encode) {
                         return this.inputStr.hexEncode()

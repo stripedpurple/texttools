@@ -30,4 +30,8 @@
         top: 1em;
         right: 1em;
     }
+
+    .copy-container textarea {
+        padding-right: 4rem;
+    }
 </style>

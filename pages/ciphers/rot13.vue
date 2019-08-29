@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <h1 class="title">ROT {{rotOffset}} | Caesar Cipher</h1>
 
     <hr>
@@ -18,12 +18,11 @@
     </div>
 
 
-  </section>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'ROT13',
     data() {
       return {
         inputStr: '',

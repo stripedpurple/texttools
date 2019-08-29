@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Number Lines</h1>
 
         <hr>
@@ -20,7 +20,7 @@
             </div>
 
         </div>
-    </section>
+    </div>
 </template>
 
 <script>

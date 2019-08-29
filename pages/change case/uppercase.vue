@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="title">Slugify</h1>
+        <h1 class="title">Uppercase</h1>
 
         <hr>
 
@@ -35,7 +35,7 @@
         },
         computed: {
             output() {
-                return this.inputStr.split('\n').map(slug => slugify(slug)).join('\n')
+                return this.inputStr.toUpperCase()
             }
         }
     }

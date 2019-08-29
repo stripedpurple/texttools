@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <h1 class="title">Search and Replace</h1>
 
     <hr>
@@ -42,12 +42,11 @@
       
     </div>
 
-  </section>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'Home',
     data() {
       return {
         inputStr: '',

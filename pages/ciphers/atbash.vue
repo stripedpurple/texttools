@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <h1 class="title">Atbash</h1>
 
     <hr>
@@ -17,12 +17,11 @@
     </div>
 
 
-  </section>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'Atbash',
     data() {
       return {
         inputStr: ''

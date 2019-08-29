@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">Baconian Cipher</h1>
 
         <hr>
@@ -59,12 +59,11 @@
             </div>
         </div>
 
-    </section>
+    </div>
 </template>
 
 <script>
     export default {
-        name: 'ROT13',
         data() {
             return {
                 inputStr: '',

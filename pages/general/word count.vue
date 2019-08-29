@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <h1 class="title">Word Count</h1>
 
     <hr>
@@ -29,7 +29,7 @@
     </div>
 
 
-  </section>
+  </div>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="title">Slugify</h1>
+        <h1 class="title">Capitalize Case</h1>
 
         <hr>
 
@@ -11,7 +11,7 @@
                         <h2 class="subtitle">Your Text</h2>
                     </template>
                     <b-input v-model="inputStr" type="textarea"
-                             placeholder="Type something here and watch the magic..."></b-input>
+                             placeholder="Converts the first letter of everyline to uppercase"></b-input>
                 </b-field>
             </div>
 
@@ -24,10 +24,9 @@
 </template>
 
 <script>
-    import slugify from 'voca/slugify'
+    import capitalize from 'voca/capitalize'
 
     export default {
-        name: "Reverse",
         data() {
             return {
                 inputStr: ''
@@ -35,7 +34,7 @@
         },
         computed: {
             output() {
-                return this.inputStr.split('\n').map(slug => slugify(slug)).join('\n')
+                return this.inputStr.split('\n').map(x => capitalize(x)).join('\n')
             }
         }
     }

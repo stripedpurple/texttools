@@ -1,5 +1,5 @@
 <template>
-    <section class="section">
+    <div>
         <h1 class="title">{{encode ? 'ASCII to Binary' : 'Binary to ASCII' }}</h1>
 
         <hr>
@@ -24,12 +24,11 @@
 
         </div>
 
-    </section>
+    </div>
 </template>
 
 <script>
     export default {
-        name: 'Base64',
         data() {
             return {
                 inputStr: '',
